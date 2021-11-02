@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#authentication-with-ninja-jwt" class="md-skip">
+        <a href="#route-authentication-class-based" class="md-skip">
           Skip to content
         </a>
       
@@ -297,29 +297,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#authentication-with-ninja-jwt" class="md-nav__link">
-    Authentication With Ninja JWT
-  </a>
-  
-    <nav class="md-nav" aria-label="Authentication With Ninja JWT">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#route-authentication-class-based" class="md-nav__link">
     Route Authentication - Class Based
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#route-authentication-function-based" class="md-nav__link">
     Route Authentication - Function Based
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -452,29 +439,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#authentication-with-ninja-jwt" class="md-nav__link">
-    Authentication With Ninja JWT
-  </a>
-  
-    <nav class="md-nav" aria-label="Authentication With Ninja JWT">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#route-authentication-class-based" class="md-nav__link">
     Route Authentication - Class Based
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#route-authentication-function-based" class="md-nav__link">
     Route Authentication - Function Based
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -500,8 +474,7 @@
                 
                   <h1>Auth Integration</h1>
                 
-                <h2 id="authentication-with-ninja-jwt">Authentication With Ninja JWT</h2>
-<p>Ninja JWT uses Django Ninja <code>HttpBearer</code> as a way to authenticate users reaching your api endpoint
+                <p>Ninja JWT uses Django Ninja <code>HttpBearer</code> as a way to authenticate users reaching your api endpoint.
 Authenticated user can be found in <code>request.user</code> or <code>request.auth</code></p>
 <h3 id="route-authentication-class-based">Route Authentication - Class Based</h3>
 <pre class="python"><code class="language-sourceCode">from ninja_extra import APIController, router, route

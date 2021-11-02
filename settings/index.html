@@ -374,6 +374,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#jwk_url" class="md-nav__link">
+    JWK_URL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#leeway" class="md-nav__link">
     LEEWAY
   </a>
@@ -634,6 +641,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#jwk_url" class="md-nav__link">
+    JWK_URL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#leeway" class="md-nav__link">
     LEEWAY
   </a>
@@ -724,7 +738,7 @@
                 
                 
                 <h2 id="settings">Settings</h2>
-<p>Some of Simple JWT\'s behavior can be customized through settings
+<p>Some of Ninja JWT's behavior can be customized through settings
 variables in <code>settings.py</code>:</p>
 <pre class="python"><code class="language-sourceCode"># Django project settings.py
 
@@ -766,17 +780,17 @@ SIMPLE_JWT = {
 <h1 id="access_token_lifetime"><code>ACCESS_TOKEN_LIFETIME</code></h1>
 <p>A <code>datetime.timedelta</code> object which specifies how long access tokens are
 valid. This <code>timedelta</code> value is added to the current UTC time during
-token generation to obtain the token\'s default \"exp\" claim value.</p>
+token generation to obtain the token's default <code>exp</code> claim value.</p>
 <h1 id="refresh_token_lifetime"><code>REFRESH_TOKEN_LIFETIME</code></h1>
 <p>A <code>datetime.timedelta</code> object which specifies how long refresh tokens
 are valid. This <code>timedelta</code> value is added to the current UTC time
-during token generation to obtain the token\'s default \"exp\" claim
+during token generation to obtain the token's default <code>exp</code> claim
 value.</p>
 <h1 id="rotate_refresh_tokens"><code>ROTATE_REFRESH_TOKENS</code></h1>
 <p>When set to <code>True</code>, if a refresh token is submitted to the
 <code>TokenRefreshView</code>, a new refresh token will be returned along with the
 new access token. This new refresh token will be supplied via a
-\"refresh\" key in the JSON response. New refresh tokens will have a
+<code>refresh</code> key in the JSON response. New refresh tokens will have a
 renewed expiration time which is determined by adding the timedelta in
 the <code>REFRESH_TOKEN_LIFETIME</code> setting to the current time when the
 request is made. If the blacklist app is in use and the
@@ -791,12 +805,12 @@ the settings file to use this setting.</p>
 <p>Learn more about <code>/blacklist_app</code>{.interpreted-text role="doc"}.</p>
 <h1 id="update_last_login"><code>UPDATE_LAST_LOGIN</code></h1>
 <p>When set to <code>True</code>, last_login field in the auth_user table is updated
-upon login (TokenObtainPairView).</p>
+upon login (TokenObtainPairController).</p>
 <blockquote>
 <p>Warning: Updating last_login will dramatically increase the number of
 database transactions. People abusing the views could slow the server
 and this could be a security vulnerability. If you really want this,
-throttle the endpoint with DRF at the very least.</p>
+throttle the endpoint.</p>
 </blockquote>
 <h1 id="algorithm"><code>ALGORITHM</code></h1>
 <p>The algorithm from the PyJWT library which will be used to perform
@@ -815,10 +829,10 @@ must be set to a string that contains an RSA public key.</p>
 For HMAC signing, this should be a random string with at least as many
 bits of data as is required by the signing protocol. For RSA signing,
 this should be a string that contains an RSA private key that is 2048
-bits or longer. Since Simple JWT defaults to using 256-bit HMAC signing,
+bits or longer. Since Ninja JWT defaults to using 256-bit HMAC signing,
 the <code>SIGNING_KEY</code> setting defaults to the value of the <code>SECRET_KEY</code>
 setting for your django project. Although this is the most reasonable
-default that Simple JWT can provide, it is recommended that developers
+default that Ninja JWT can provide, it is recommended that developers
 change this setting to a value that is independent from the django
 project secret key. This will make changing the signing key used for
 tokens easier in the event that it is compromised.</p>
@@ -837,10 +851,10 @@ tokens and is not validated.</p>
 <p>The issuer claim to be included in generated tokens and/or validated in
 decoded tokens. When set to <code>None</code>, this field is excluded from tokens
 and is not validated.</p>
-<p><code>JWK_URL</code> ----------</p>
+<h1 id="jwk_url"><code>JWK_URL</code></h1>
 <p>The JWK_URL is used to dynamically resolve the public keys needed to
 verify the signing of tokens. When using Auth0 for example you might set
-this to \'<a href="https://yourdomain.auth0.com/.well-known/jwks.json">https://yourdomain.auth0.com/.well-known/jwks.json</a>\'. When
+this to '<a href="https://yourdomain.auth0.com/.well-known/jwks.json">https://yourdomain.auth0.com/.well-known/jwks.json</a>'. When
 set to <code>None</code>, this field is excluded from the token backend and is not
 used during validation.</p>
 <h1 id="leeway"><code>LEEWAY</code></h1>
@@ -852,8 +866,8 @@ for more information.</p>
 <p>The database field from the user model that will be included in
 generated tokens to identify users. It is recommended that the value of
 this setting specifies a field that does not normally change once its
-initial value is chosen. For example, specifying a \"username\" or
-\"email\" field would be a poor choice since an account\'s username or
+initial value is chosen. For example, specifying a <code>username</code> or
+<code>email</code> field would be a poor choice since an account's username or
 email might change depending on how account management in a given
 service is designed. This could allow a new account to be created with
 an old username while an existing token is still valid which uses that
@@ -861,7 +875,7 @@ username as a user identifier.</p>
 <h1 id="user_id_claim"><code>USER_ID_CLAIM</code></h1>
 <p>The claim in generated tokens which will be used to store user
 identifiers. For example, a setting value of <code>'user_id'</code> would mean
-generated tokens include a \"user_id\" claim that contains the user\'s
+generated tokens include a <code>user_id</code> claim that contains the user's
 identifier.</p>
 <h1 id="user_authentication_rule"><code>USER_AUTHENTICATION_RULE</code></h1>
 <p>Callable to determine if the user is permitted to authenticate. This
@@ -872,16 +886,16 @@ boolean, <code>True</code> if authorized, <code>False</code> otherwise resulting
 status code.</p>
 <h1 id="auth_token_classes"><code>AUTH_TOKEN_CLASSES</code></h1>
 <p>A list of dot paths to classes that specify the types of token that are
-allowed to prove authentication. More about this in the \"Token types\"
+allowed to prove authentication. More about this in the <code>Token types</code>
 section below.</p>
 <h1 id="token_type_claim"><code>TOKEN_TYPE_CLAIM</code></h1>
-<p>The claim name that is used to store a token\'s type. More about this in
-the \"Token types\" section below.</p>
+<p>The claim name that is used to store a token's type. More about this in
+the <code>Token types</code> section below.</p>
 <h1 id="jti_claim"><code>JTI_CLAIM</code></h1>
-<p>The claim name that is used to store a token\'s unique identifier. This
+<p>The claim name that is used to store a token's unique identifier. This
 identifier is used to identify revoked tokens in the blacklist app. It
 may be necessary in some cases to use another claim besides the default
-\"jti\" claim to store such a value.</p>
+<code>jti</code> claim to store such a value.</p>
 <h1 id="token_user_class"><code>TOKEN_USER_CLASS</code></h1>
 <p>A stateless user object which is backed by a validated token. Used only
 for the experimental JWTTokenUserAuthentication authentication backend.
@@ -890,18 +904,18 @@ The value is a dotted path to your subclass of
 <h1 id="sliding_token_lifetime"><code>SLIDING_TOKEN_LIFETIME</code></h1>
 <p>A <code>datetime.timedelta</code> object which specifies how long sliding tokens
 are valid to prove authentication. This <code>timedelta</code> value is added to
-the current UTC time during token generation to obtain the token\'s
-default \"exp\" claim value. More about this in the \"Sliding tokens\"
+the current UTC time during token generation to obtain the token's
+default <code>exp</code> claim value. More about this in the <code>Sliding tokens</code>
 section below.</p>
 <h1 id="sliding_token_refresh_lifetime"><code>SLIDING_TOKEN_REFRESH_LIFETIME</code></h1>
 <p>A <code>datetime.timedelta</code> object which specifies how long sliding tokens
 are valid to be refreshed. This <code>timedelta</code> value is added to the
-current UTC time during token generation to obtain the token\'s default
-\"exp\" claim value. More about this in the \"Sliding tokens\" section
+current UTC time during token generation to obtain the token's default
+<code>exp</code> claim value. More about this in the <code>Sliding tokens</code> section
 below.</p>
 <h1 id="sliding_token_refresh_exp_claim"><code>SLIDING_TOKEN_REFRESH_EXP_CLAIM</code></h1>
 <p>The claim name that is used to store the expiration time of a sliding
-token\'s refresh period. More about this in the \"Sliding tokens\"
+token's refresh period. More about this in the <code>Sliding tokens</code>
 section below.</p>
                 
               

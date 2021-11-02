@@ -447,11 +447,11 @@ INSTALLED_APPS = (
 </code></pre>
 <p>Also, make sure to run <code>python manage.py migrate</code> to run the app\'s
 migrations.</p>
-<p>If the blacklist app is detected in <code>INSTALLED_APPS</code>, Simple JWT will
+<p>If the blacklist app is detected in <code>INSTALLED_APPS</code>, Ninja JWT will
 add any generated refresh or sliding tokens to a list of outstanding
 tokens. It will also check that any refresh or sliding token does not
 appear in a blacklist of tokens before it considers it as valid.</p>
-<p>The Simple JWT blacklist app implements its outstanding and blacklisted
+<p>The Ninja JWT blacklist app implements its outstanding and blacklisted
 token lists using two models: <code>OutstandingToken</code> and <code>BlacklistedToken</code>.
 Model admins are defined for both of these models. To add a token to the
 blacklist, find its corresponding <code>OutstandingToken</code> record in the admin

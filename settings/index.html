@@ -1,0 +1,986 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Django Ninja JWT - A Simple JWT plugin for Django-Ninja.">
+      
+      
+      
+      
+        <link rel="canonical" href="https://eadwincode.github.io/django-ninja-jwt/settings/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
+    
+    
+      
+        <title>Settings - Django Ninja JWT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.24c991ad.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deeppurple" data-md-color-accent="deeppurple">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#settings" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Django Ninja JWT" class="md-header__button md-logo" aria-label="Django Ninja JWT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Django Ninja JWT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Settings
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deeppurple" data-md-color-accent="deeppurple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/eadwinCode/django-ninja-jwt" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    eadwinCode/django-ninja-jwt
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Django Ninja JWT" class="md-nav__button md-logo" aria-label="Django Ninja JWT" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Django Ninja JWT
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/eadwinCode/django-ninja-jwt" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    eadwinCode/django-ninja-jwt
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Ninja JWT
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting_started/" class="md-nav__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Settings
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Settings
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#settings" class="md-nav__link">
+    Settings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access_token_lifetime" class="md-nav__link">
+    ACCESS_TOKEN_LIFETIME
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refresh_token_lifetime" class="md-nav__link">
+    REFRESH_TOKEN_LIFETIME
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotate_refresh_tokens" class="md-nav__link">
+    ROTATE_REFRESH_TOKENS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blacklist_after_rotation" class="md-nav__link">
+    BLACKLIST_AFTER_ROTATION
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update_last_login" class="md-nav__link">
+    UPDATE_LAST_LOGIN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algorithm" class="md-nav__link">
+    ALGORITHM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signing_key" class="md-nav__link">
+    SIGNING_KEY
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifying_key" class="md-nav__link">
+    VERIFYING_KEY
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audience" class="md-nav__link">
+    AUDIENCE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#issuer" class="md-nav__link">
+    ISSUER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leeway" class="md-nav__link">
+    LEEWAY
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user_id_field" class="md-nav__link">
+    USER_ID_FIELD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user_id_claim" class="md-nav__link">
+    USER_ID_CLAIM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user_authentication_rule" class="md-nav__link">
+    USER_AUTHENTICATION_RULE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth_token_classes" class="md-nav__link">
+    AUTH_TOKEN_CLASSES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token_type_claim" class="md-nav__link">
+    TOKEN_TYPE_CLAIM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jti_claim" class="md-nav__link">
+    JTI_CLAIM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token_user_class" class="md-nav__link">
+    TOKEN_USER_CLASS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sliding_token_lifetime" class="md-nav__link">
+    SLIDING_TOKEN_LIFETIME
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sliding_token_refresh_lifetime" class="md-nav__link">
+    SLIDING_TOKEN_REFRESH_LIFETIME
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sliding_token_refresh_exp_claim" class="md-nav__link">
+    SLIDING_TOKEN_REFRESH_EXP_CLAIM
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../customizing_token_claims/" class="md-nav__link">
+        Customizing Token Claims
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating_tokens_manually/" class="md-nav__link">
+        Creating Token Manually
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../token_types/" class="md-nav__link">
+        Token Types
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blacklist_app/" class="md-nav__link">
+        Blacklist App
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development_and_contributing/" class="md-nav__link">
+        Development and Contributing
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#settings" class="md-nav__link">
+    Settings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access_token_lifetime" class="md-nav__link">
+    ACCESS_TOKEN_LIFETIME
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#refresh_token_lifetime" class="md-nav__link">
+    REFRESH_TOKEN_LIFETIME
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rotate_refresh_tokens" class="md-nav__link">
+    ROTATE_REFRESH_TOKENS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#blacklist_after_rotation" class="md-nav__link">
+    BLACKLIST_AFTER_ROTATION
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update_last_login" class="md-nav__link">
+    UPDATE_LAST_LOGIN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algorithm" class="md-nav__link">
+    ALGORITHM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signing_key" class="md-nav__link">
+    SIGNING_KEY
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verifying_key" class="md-nav__link">
+    VERIFYING_KEY
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#audience" class="md-nav__link">
+    AUDIENCE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#issuer" class="md-nav__link">
+    ISSUER
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#leeway" class="md-nav__link">
+    LEEWAY
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user_id_field" class="md-nav__link">
+    USER_ID_FIELD
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user_id_claim" class="md-nav__link">
+    USER_ID_CLAIM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user_authentication_rule" class="md-nav__link">
+    USER_AUTHENTICATION_RULE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth_token_classes" class="md-nav__link">
+    AUTH_TOKEN_CLASSES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token_type_claim" class="md-nav__link">
+    TOKEN_TYPE_CLAIM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jti_claim" class="md-nav__link">
+    JTI_CLAIM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token_user_class" class="md-nav__link">
+    TOKEN_USER_CLASS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sliding_token_lifetime" class="md-nav__link">
+    SLIDING_TOKEN_LIFETIME
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sliding_token_refresh_lifetime" class="md-nav__link">
+    SLIDING_TOKEN_REFRESH_LIFETIME
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sliding_token_refresh_exp_claim" class="md-nav__link">
+    SLIDING_TOKEN_REFRESH_EXP_CLAIM
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <hr />
+<h2 id="settings">Settings</h2>
+<p>Some of Simple JWT\'s behavior can be customized through settings
+variables in <code>settings.py</code>:</p>
+<pre class="python"><code class="language-sourceCode"># Django project settings.py
+
+from datetime import timedelta
+from django.conf import settings
+...
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': False,
+    'UPDATE_LAST_LOGIN': False,
+
+    'ALGORITHM': 'HS256',
+    'SIGNING_KEY': settings.SECRET_KEY,
+    'VERIFYING_KEY': None,
+    'AUDIENCE': None,
+    'ISSUER': None,
+    'JWK_URL': None,
+    'LEEWAY': 0,
+
+    'USER_ID_FIELD': 'id',
+    'USER_ID_CLAIM': 'user_id',
+    'USER_AUTHENTICATION_RULE': 'ninja_jwt.authentication.default_user_authentication_rule',
+
+    'AUTH_TOKEN_CLASSES': ('ninja_jwt.tokens.AccessToken',),
+    'TOKEN_TYPE_CLAIM': 'token_type',
+    'TOKEN_USER_CLASS': 'ninja_jwt.models.TokenUser',
+
+    'JTI_CLAIM': 'jti',
+
+    'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
+    'SLIDING_TOKEN_LIFETIME': timedelta(minutes=5),
+    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
+}
+</code></pre>
+<p>Above, the default values for these settings are shown.</p>
+<h1 id="access_token_lifetime"><code>ACCESS_TOKEN_LIFETIME</code></h1>
+<p>A <code>datetime.timedelta</code> object which specifies how long access tokens are
+valid. This <code>timedelta</code> value is added to the current UTC time during
+token generation to obtain the token\'s default \"exp\" claim value.</p>
+<h1 id="refresh_token_lifetime"><code>REFRESH_TOKEN_LIFETIME</code></h1>
+<p>A <code>datetime.timedelta</code> object which specifies how long refresh tokens
+are valid. This <code>timedelta</code> value is added to the current UTC time
+during token generation to obtain the token\'s default \"exp\" claim
+value.</p>
+<h1 id="rotate_refresh_tokens"><code>ROTATE_REFRESH_TOKENS</code></h1>
+<p>When set to <code>True</code>, if a refresh token is submitted to the
+<code>TokenRefreshView</code>, a new refresh token will be returned along with the
+new access token. This new refresh token will be supplied via a
+\"refresh\" key in the JSON response. New refresh tokens will have a
+renewed expiration time which is determined by adding the timedelta in
+the <code>REFRESH_TOKEN_LIFETIME</code> setting to the current time when the
+request is made. If the blacklist app is in use and the
+<code>BLACKLIST_AFTER_ROTATION</code> setting is set to <code>True</code>, refresh tokens
+submitted to the refresh view will be added to the blacklist.</p>
+<h1 id="blacklist_after_rotation"><code>BLACKLIST_AFTER_ROTATION</code></h1>
+<p>When set to <code>True</code>, causes refresh tokens submitted to the
+<code>TokenRefreshView</code> to be added to the blacklist if the blacklist app is
+in use and the <code>ROTATE_REFRESH_TOKENS</code> setting is set to <code>True</code>. You
+need to add <code>'ninja_jwt.token_blacklist',</code> to your <code>INSTALLED_APPS</code> in
+the settings file to use this setting.</p>
+<p>Learn more about <code>/blacklist_app</code>{.interpreted-text role="doc"}.</p>
+<h1 id="update_last_login"><code>UPDATE_LAST_LOGIN</code></h1>
+<p>When set to <code>True</code>, last_login field in the auth_user table is updated
+upon login (TokenObtainPairView).</p>
+<blockquote>
+<p>Warning: Updating last_login will dramatically increase the number of
+database transactions. People abusing the views could slow the server
+and this could be a security vulnerability. If you really want this,
+throttle the endpoint with DRF at the very least.</p>
+</blockquote>
+<h1 id="algorithm"><code>ALGORITHM</code></h1>
+<p>The algorithm from the PyJWT library which will be used to perform
+signing/verification operations on tokens. To use symmetric HMAC signing
+and verification, the following algorithms may be used: <code>'HS256'</code>,
+<code>'HS384'</code>, <code>'HS512'</code>. When an HMAC algorithm is chosen, the
+<code>SIGNING_KEY</code> setting will be used as both the signing key and the
+verifying key. In that case, the <code>VERIFYING_KEY</code> setting will be
+ignored. To use asymmetric RSA signing and verification, the following
+algorithms may be used: <code>'RS256'</code>, <code>'RS384'</code>, <code>'RS512'</code>. When an RSA
+algorithm is chosen, the <code>SIGNING_KEY</code> setting must be set to a string
+that contains an RSA private key. Likewise, the <code>VERIFYING_KEY</code> setting
+must be set to a string that contains an RSA public key.</p>
+<h1 id="signing_key"><code>SIGNING_KEY</code></h1>
+<p>The signing key that is used to sign the content of generated tokens.
+For HMAC signing, this should be a random string with at least as many
+bits of data as is required by the signing protocol. For RSA signing,
+this should be a string that contains an RSA private key that is 2048
+bits or longer. Since Simple JWT defaults to using 256-bit HMAC signing,
+the <code>SIGNING_KEY</code> setting defaults to the value of the <code>SECRET_KEY</code>
+setting for your django project. Although this is the most reasonable
+default that Simple JWT can provide, it is recommended that developers
+change this setting to a value that is independent from the django
+project secret key. This will make changing the signing key used for
+tokens easier in the event that it is compromised.</p>
+<h1 id="verifying_key"><code>VERIFYING_KEY</code></h1>
+<p>The verifying key which is used to verify the content of generated
+tokens. If an HMAC algorithm has been specified by the <code>ALGORITHM</code>
+setting, the <code>VERIFYING_KEY</code> setting will be ignored and the value of
+the <code>SIGNING_KEY</code> setting will be used. If an RSA algorithm has been
+specified by the <code>ALGORITHM</code> setting, the <code>VERIFYING_KEY</code> setting must
+be set to a string that contains an RSA public key.</p>
+<h1 id="audience"><code>AUDIENCE</code></h1>
+<p>The audience claim to be included in generated tokens and/or validated
+in decoded tokens. When set to <code>None</code>, this field is excluded from
+tokens and is not validated.</p>
+<h1 id="issuer"><code>ISSUER</code></h1>
+<p>The issuer claim to be included in generated tokens and/or validated in
+decoded tokens. When set to <code>None</code>, this field is excluded from tokens
+and is not validated.</p>
+<p><code>JWK_URL</code> ----------</p>
+<p>The JWK_URL is used to dynamically resolve the public keys needed to
+verify the signing of tokens. When using Auth0 for example you might set
+this to \'<a href="https://yourdomain.auth0.com/.well-known/jwks.json">https://yourdomain.auth0.com/.well-known/jwks.json</a>\'. When
+set to <code>None</code>, this field is excluded from the token backend and is not
+used during validation.</p>
+<h1 id="leeway"><code>LEEWAY</code></h1>
+<p>Leeway is used to give some margin to the expiration time. This can be
+an integer for seconds or a <code>datetime.timedelta</code>. Please reference
+<a href="https://pyjwt.readthedocs.io/en/latest/usage.html#expiration-time-claim-exp">https://pyjwt.readthedocs.io/en/latest/usage.html#expiration-time-claim-exp</a>
+for more information.</p>
+<h1 id="user_id_field"><code>USER_ID_FIELD</code></h1>
+<p>The database field from the user model that will be included in
+generated tokens to identify users. It is recommended that the value of
+this setting specifies a field that does not normally change once its
+initial value is chosen. For example, specifying a \"username\" or
+\"email\" field would be a poor choice since an account\'s username or
+email might change depending on how account management in a given
+service is designed. This could allow a new account to be created with
+an old username while an existing token is still valid which uses that
+username as a user identifier.</p>
+<h1 id="user_id_claim"><code>USER_ID_CLAIM</code></h1>
+<p>The claim in generated tokens which will be used to store user
+identifiers. For example, a setting value of <code>'user_id'</code> would mean
+generated tokens include a \"user_id\" claim that contains the user\'s
+identifier.</p>
+<h1 id="user_authentication_rule"><code>USER_AUTHENTICATION_RULE</code></h1>
+<p>Callable to determine if the user is permitted to authenticate. This
+rule is applied after a valid token is processed. The user object is
+passed to the callable as an argument. The default rule is to check that
+the <code>is_active</code> flag is still <code>True</code>. The callable must return a
+boolean, <code>True</code> if authorized, <code>False</code> otherwise resulting in a 401
+status code.</p>
+<h1 id="auth_token_classes"><code>AUTH_TOKEN_CLASSES</code></h1>
+<p>A list of dot paths to classes that specify the types of token that are
+allowed to prove authentication. More about this in the \"Token types\"
+section below.</p>
+<h1 id="token_type_claim"><code>TOKEN_TYPE_CLAIM</code></h1>
+<p>The claim name that is used to store a token\'s type. More about this in
+the \"Token types\" section below.</p>
+<h1 id="jti_claim"><code>JTI_CLAIM</code></h1>
+<p>The claim name that is used to store a token\'s unique identifier. This
+identifier is used to identify revoked tokens in the blacklist app. It
+may be necessary in some cases to use another claim besides the default
+\"jti\" claim to store such a value.</p>
+<h1 id="token_user_class"><code>TOKEN_USER_CLASS</code></h1>
+<p>A stateless user object which is backed by a validated token. Used only
+for the experimental JWTTokenUserAuthentication authentication backend.
+The value is a dotted path to your subclass of
+<code>rest_framework_simplejwt.models.TokenUser</code>, which also is the default.</p>
+<h1 id="sliding_token_lifetime"><code>SLIDING_TOKEN_LIFETIME</code></h1>
+<p>A <code>datetime.timedelta</code> object which specifies how long sliding tokens
+are valid to prove authentication. This <code>timedelta</code> value is added to
+the current UTC time during token generation to obtain the token\'s
+default \"exp\" claim value. More about this in the \"Sliding tokens\"
+section below.</p>
+<h1 id="sliding_token_refresh_lifetime"><code>SLIDING_TOKEN_REFRESH_LIFETIME</code></h1>
+<p>A <code>datetime.timedelta</code> object which specifies how long sliding tokens
+are valid to be refreshed. This <code>timedelta</code> value is added to the
+current UTC time during token generation to obtain the token\'s default
+\"exp\" claim value. More about this in the \"Sliding tokens\" section
+below.</p>
+<h1 id="sliding_token_refresh_exp_claim"><code>SLIDING_TOKEN_REFRESH_EXP_CLAIM</code></h1>
+<p>The claim name that is used to store the expiration time of a sliding
+token\'s refresh period. More about this in the \"Sliding tokens\"
+section below.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../getting_started/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Getting Started" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Getting Started
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../customizing_token_claims/" class="md-footer__link md-footer__link--next" aria-label="Next: Customizing Token Claims" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Customizing Token Claims
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.bc35569b.min.js"></script>
+      
+    
+  </body>
+</html>

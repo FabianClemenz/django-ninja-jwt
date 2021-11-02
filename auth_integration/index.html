@@ -18,7 +18,7 @@
     
     
       
-        <title>Route Integration - Django Ninja JWT</title>
+        <title>Route Authentication - Django Ninja JWT</title>
       
     
     
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Route Integration
+              Route Authentication
             
           </span>
         </div>
@@ -276,12 +276,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Route Integration
+          Route Authentication
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Route Integration
+        Route Authentication
       </a>
       
         
@@ -472,7 +472,7 @@
               
                 
                 
-                  <h1>Route Integration</h1>
+                  <h1>Route Authentication</h1>
                 
                 <p>Ninja JWT uses Django Ninja <code>HttpBearer</code> as a way to authenticate users reaching your api endpoint.
 Authenticated user can be found in <code>request.user</code> or <code>request.auth</code></p>
@@ -497,7 +497,7 @@ def some_endpoint(self):
     ...
 </code></pre>
 <h2 id="custom-auth-implement">Custom Auth Implement</h2>
-<p>If you wish to use a different implementation of <code>JWTAuth</code>, then you need to inherit from <code>JWTBaseAuthentication</code>
+<p>If you wish to use a different implementation of <code>JWTAuth</code>, then you need to inherit from <code>JWTBaseAuthentication</code>.
 Please read more on <a href="https://django-ninja.rest-framework.com/tutorial/authentication/">Django Ninja - Authentication</a>, if you want to use a different approach that is not <code>bearer</code>.</p>
 <p>example:</p>
 <pre class="python"><code class="language-sourceCode">from ninja.security import APIKeyHeader

@@ -479,10 +479,10 @@ class MyTokenObtainPairOutSchema(Schema):
 
 
 class MyTokenObtainPairSchema(TokenObtainPairSerializer):
-        def output_schema(self):
-            out_dict = self.dict(exclude={&quot;password&quot;})
-            out_dict.update(user=UserSchema.from_orm(self._user))
-            return MyTokenObtainPairOutSchema(**out_dict)
+    def output_schema(self):
+        out_dict = self.dict(exclude={&quot;password&quot;})
+        out_dict.update(user=UserSchema.from_orm(self._user))
+        return MyTokenObtainPairOutSchema(**out_dict)
 
 @router('/token', tags=['Auth'])
 class MyTokenObtainPairController(TokenObtainPairController):

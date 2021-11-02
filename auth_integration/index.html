@@ -11,14 +11,14 @@
       
       
       
-        <link rel="canonical" href="https://eadwincode.github.io/django-ninja-jwt/customizing_token_claims/">
+        <link rel="canonical" href="https://eadwincode.github.io/django-ninja-jwt/auth_integration/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
     
     
       
-        <title>Customizing Token Claims - Django Ninja JWT</title>
+        <title>Auth Integration - Django Ninja JWT</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#customizing-token-claims" class="md-skip">
+        <a href="#authentication-with-ninja-jwt" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Customizing Token Claims
+              Auth Integration
             
           </span>
         </div>
@@ -266,11 +266,74 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../auth_integration/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Auth Integration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Auth Integration
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-with-ninja-jwt" class="md-nav__link">
+    Authentication With Ninja JWT
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication With Ninja JWT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#route-authentication-class-based" class="md-nav__link">
+    Route Authentication - Class Based
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route-authentication-function-based" class="md-nav__link">
+    Route Authentication - Function Based
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-auth-implement" class="md-nav__link">
+    Custom Auth Implement
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -296,60 +359,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Customizing Token Claims
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../customizing_token_claims/" class="md-nav__link">
         Customizing Token Claims
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#customizing-token-claims" class="md-nav__link">
-    Customizing token claims
-  </a>
-  
-    <nav class="md-nav" aria-label="Customizing token claims">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#use-django-ninja-router" class="md-nav__link">
-    Use Django Ninja Router
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -438,16 +452,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#customizing-token-claims" class="md-nav__link">
-    Customizing token claims
+  <a href="#authentication-with-ninja-jwt" class="md-nav__link">
+    Authentication With Ninja JWT
   </a>
   
-    <nav class="md-nav" aria-label="Customizing token claims">
+    <nav class="md-nav" aria-label="Authentication With Ninja JWT">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#use-django-ninja-router" class="md-nav__link">
-    Use Django Ninja Router
+  <a href="#route-authentication-class-based" class="md-nav__link">
+    Route Authentication - Class Based
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route-authentication-function-based" class="md-nav__link">
+    Route Authentication - Function Based
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-auth-implement" class="md-nav__link">
+    Custom Auth Implement
   </a>
   
 </li>
@@ -470,64 +498,54 @@
               
                 
                 
-                  <h1>Customizing Token Claims</h1>
+                  <h1>Auth Integration</h1>
                 
-                <h2 id="customizing-token-claims">Customizing token claims</h2>
-<p>If you wish to customize the claims contained in web tokens which are
-generated by the <code>SimpleJWTDefaultController</code> and <code>SimpleJWTSlidingController</code>
-views, create a subclass for the desired controller as well as a subclass for
-its corresponding serializer. Here\'s an example :</p>
-<pre class="python"><code class="language-sourceCode">from ninja_jwt.schema import TokenObtainPairSerializer
-from ninja_jwt.controller import TokenObtainPairController, router, route
-from ninja_schema import Schema
+                <h2 id="authentication-with-ninja-jwt">Authentication With Ninja JWT</h2>
+<p>Ninja JWT uses Django Ninja <code>HttpBearer</code> as a way to authenticate users reaching your api endpoint
+Authenticated user can be found in <code>request.user</code> or <code>request.auth</code></p>
+<h3 id="route-authentication-class-based">Route Authentication - Class Based</h3>
+<pre class="python"><code class="language-sourceCode">from ninja_extra import APIController, router, route
+from ninja_jwt import JWTAuth
 
-
-class UserSchema(Schema):
-    first_name: str
-    email: str
-
-
-class MyTokenObtainPairOutSchema(Schema):
-    refresh: str
-    access: str
-    user: UserSchema
-
-
-class MyTokenObtainPairSchema(TokenObtainPairSerializer):
-    def output_schema(self):
-        out_dict = self.dict(exclude={&quot;password&quot;})
-        out_dict.update(user=UserSchema.from_orm(self._user))
-        return MyTokenObtainPairOutSchema(**out_dict)
-
-@router('/token', tags=['Auth'])
-class MyTokenObtainPairController(TokenObtainPairController):
-    @route.post(
-        &quot;/pair&quot;, response=schema.MyTokenObtainPairOutSchema, url_name=&quot;token_obtain_pair&quot;
-    )
-    def obtain_token(self, user_token: MyTokenObtainPairSchema):
-        return user_token.output_schema()
-
+@router('')
+class MyController(APIController):
+    @route.get('/some-endpoint', auth=JWTAuth())
+    def some_endpoint(self):
+        ...
 </code></pre>
-<p>As with the standard controller, you\'ll also need to include register the controller as shown in <code>getting_started</code></p>
-<h4 id="use-django-ninja-router">Use Django Ninja Router</h4>
-<p>If you interested in using functions rather than classes, then you are also covered.
-Here is an example</p>
+<h3 id="route-authentication-function-based">Route Authentication - Function Based</h3>
 <pre class="python"><code class="language-sourceCode">from ninja import router
-from ninja_schema import Schema
+from ninja_jwt import JWTAuth
 
-router = router('/token')
+router = router('')
 
-@router.post(
-    &quot;/pair&quot;, response=schema.MyTokenObtainPairOutSchema, url_name=&quot;token_obtain_pair&quot;
-)
-def obtain_token(self, user_token: MyTokenObtainPairSchema):
-    return user_token.output_schema()
+@router.get('/some-endpoint', auth=JWTAuth())
+def some_endpoint(self):
+    ...
 </code></pre>
-<p>Register the <code>router</code> to the django-ninja <code>api</code> like so:</p>
-<pre class="python"><code class="language-sourceCode">from ninja import NinjaAPI
+<h3 id="custom-auth-implement">Custom Auth Implement</h3>
+<p>If you wish to use a different implementation of <code>JWTAuth</code>, then you need to inherit from <code>JWTBaseAuthentication</code>
+Please read more on <a href="https://django-ninja.rest-framework.com/tutorial/authentication/">Django Ninja - Authentication</a>, if you want to use a different approach that is not <code>bearer</code>.</p>
+<p>example:</p>
+<pre class="python"><code class="language-sourceCode">from ninja.security import APIKeyHeader
+from ninja_jwt import JWTBaseAuthentication
+from ninja import router
 
-api = NinjaAPI()
-api.add_router('', tags=['Auth'], router=router)
+class ApiKey(APIKeyHeader):
+    param_name = &quot;X-API-Key&quot;
+
+    def authenticate(self, request, key):
+        if key == &quot;supersecret&quot;:
+            return self.jwt_authenticate(request, token=key)
+
+
+header_key = ApiKey()
+router = router('')
+
+@api.get(&quot;/headerkey&quot;, auth=header_key)
+def apikey(request):
+    return f&quot;Token = {request.auth}&quot;
+
 </code></pre>
                 
               
@@ -548,7 +566,7 @@ api.add_router('', tags=['Auth'], router=router)
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../settings/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Settings" rel="prev">
+        <a href="../getting_started/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Getting Started" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -557,20 +575,20 @@ api.add_router('', tags=['Auth'], router=router)
               <span class="md-footer__direction">
                 Previous
               </span>
-              Settings
+              Getting Started
             </div>
           </div>
         </a>
       
       
         
-        <a href="../creating_tokens_manually/" class="md-footer__link md-footer__link--next" aria-label="Next: Creating Token Manually" rel="next">
+        <a href="../settings/" class="md-footer__link md-footer__link--next" aria-label="Next: Settings" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Creating Token Manually
+              Settings
             </div>
           </div>
           <div class="md-footer__button md-icon">

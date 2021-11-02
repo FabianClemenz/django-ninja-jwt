@@ -500,18 +500,16 @@ api.register_controller(SimpleJWTDefaultController)
 <p>The <code>SimpleJWTDefaultController</code> comes with three routes <code>obtain_token</code>, <code>refresh_token</code> and <code>verify_token</code>. 
 It is a combination of two subclass <code>TokenVerificationController</code> and <code>TokenObtainPairController</code>.
 If you wish to customize these routes, you can inherit from these controllers and change its implementation</p>
-<p>``` {.sourceCode .python
-from ninja_jwt.controller import TokenObtainPairController</p>
-<p>class MyCustomController(TokenObtainPairController):
-    """obtain_token and refresh_token only"
-...
-api.register_controller(MyCustomController)</p>
-<pre><code>
-If you wish to use localizations/translations, simply add `ninja_jwt` to
-`INSTALLED_APPS`.
+<pre class="python"><code class="language-sourceCode">from ninja_jwt.controller import TokenObtainPairController
 
-``` {.sourceCode .python}
-INSTALLED_APPS = [
+class MyCustomController(TokenObtainPairController):
+    &quot;&quot;&quot;obtain_token and refresh_token only&quot;
+...
+api.register_controller(MyCustomController)
+</code></pre>
+<p>If you wish to use localizations/translations, simply add <code>ninja_jwt</code> to
+<code>INSTALLED_APPS</code>.</p>
+<pre class="python"><code class="language-sourceCode">INSTALLED_APPS = [
     ...
     'ninja_jwt',
     ...

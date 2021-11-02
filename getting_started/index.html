@@ -500,8 +500,9 @@ api.register_controller(SimpleJWTDefaultController)
 <p>The <code>SimpleJWTDefaultController</code> comes with three routes <code>obtain_token</code>, <code>refresh_token</code> and <code>verify_token</code>. 
 It is a combination of two subclass <code>TokenVerificationController</code> and <code>TokenObtainPairController</code>.
 If you wish to customize these routes, you can inherit from these controllers and change its implementation</p>
-<pre class="python"><code class="language-sourceCode">from ninja_jwt.controller import TokenObtainPairController
+<pre class="python"><code class="language-sourceCode">from ninja_jwt.controller import TokenObtainPairController, router
 
+@router('token', tags=['Auth']
 class MyCustomController(TokenObtainPairController):
     &quot;&quot;&quot;obtain_token and refresh_token only&quot;
 ...
@@ -522,7 +523,7 @@ of test requests:</p>
   -X POST \
   -H &quot;Content-Type: application/json&quot; \
   -d '{&quot;username&quot;: &quot;davidattenborough&quot;, &quot;password&quot;: &quot;boatymcboatface&quot;}' \
-  http://localhost:8000/api/token/
+  http://localhost:8000/api/token/pair
 
 ...
 {

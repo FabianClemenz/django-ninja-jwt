@@ -385,7 +385,7 @@
                 
                 <p>Sometimes, you may wish to manually create a token for a user. This
 could be done as follows:</p>
-<pre class="python"><code class="language-sourceCode">from ninja_jwt.tokens import RefreshToken
+<pre><code class="language-python">from ninja_jwt.tokens import RefreshToken
 
 def get_tokens_for_user(user):
     refresh = RefreshToken.for_user(user)

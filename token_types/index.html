@@ -437,12 +437,12 @@ setting to <code>('ninja_jwt.tokens.SlidingToken',)</code>. (Alternatively, the
 <code>AccessToken</code> and <code>SlidingToken</code> token classes in the <code>ninja_jwt.tokens</code>
 module if you want to allow both token types to be used for
 authentication.)</p>
-<p>Also, register <code>SimpleJWTSlidingController</code> to the <code>api</code>:</p>
-<pre class="python"><code class="language-sourceCode">from ninja_jwt.controller import SimpleJWTSlidingController
+<p>Also, register <code>NinjaJWTSlidingController</code> to the <code>api</code>:</p>
+<pre><code class="language-python">from ninja_jwt.controller import NinjaJWTSlidingController
 from ninja_extra import NinjaExtraAPI
 
 api = NinjaExtraAPI()
-api.register_controller(SimpleJWTSlidingController)
+api.register_controllers(NinjaJWTSlidingController)
 
 </code></pre>
 <p>Be aware that, if you are using the blacklist app, Ninja JWT will

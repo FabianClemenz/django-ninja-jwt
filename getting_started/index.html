@@ -481,35 +481,35 @@
 <li>Django-Ninja-Extra &gt;= 0.11.0</li>
 </ul>
 <p>These are the officially supported python and package versions. Other
-versions will probably work. You\'re free to modify the tox config and
+versions will probably work. You 're free to modify the tox config and
 see what is possible.</p>
 <h1 id="installation">Installation</h1>
 <p>Ninja JWT can be installed with pip:</p>
-<pre><code>pip install ninja-jwt
+<pre><code>pip install django-ninja-jwt
 </code></pre>
-<p>Also, you need to register <code>SimpleJWTDefaultController</code> controller to you Django-Ninja api.
-The <code>SimpleJWTDefaultController</code> comes with three routes <code>obtain_token</code>, <code>refresh_token</code> and <code>verify_token</code></p>
-<pre class="python"><code class="language-sourceCode">from ninja_jwt.controller import SimpleJWTDefaultController
+<p>Also, you need to register <code>NinjaJWTDefaultController</code> controller to you Django-Ninja api.
+The <code>NinjaJWTDefaultController</code> comes with three routes <code>obtain_token</code>, <code>refresh_token</code> and <code>verify_token</code></p>
+<pre><code class="language-python">from ninja_jwt.controller import NinjaJWTDefaultController
 from ninja_extra import NinjaExtraAPI
 
 api = NinjaExtraAPI()
-api.register_controller(SimpleJWTDefaultController)
+api.register_controllers(NinjaJWTDefaultController)
 
 </code></pre>
-<p>The <code>SimpleJWTDefaultController</code> comes with three routes <code>obtain_token</code>, <code>refresh_token</code> and <code>verify_token</code>. 
+<p>The <code>NinjaJWTDefaultController</code> comes with three routes <code>obtain_token</code>, <code>refresh_token</code> and <code>verify_token</code>. 
 It is a combination of two subclass <code>TokenVerificationController</code> and <code>TokenObtainPairController</code>.
 If you wish to customize these routes, you can inherit from these controllers and change its implementation</p>
-<pre class="python"><code class="language-sourceCode">from ninja_jwt.controller import TokenObtainPairController, router
+<pre><code class="language-python">from ninja_jwt.controller import TokenObtainPairController, router
 
 @router('token', tags=['Auth']
 class MyCustomController(TokenObtainPairController):
     &quot;&quot;&quot;obtain_token and refresh_token only&quot;
 ...
-api.register_controller(MyCustomController)
+api.register_controllers(MyCustomController)
 </code></pre>
 <p>If you wish to use localizations/translations, simply add <code>ninja_jwt</code> to
 <code>INSTALLED_APPS</code>.</p>
-<pre class="python"><code class="language-sourceCode">INSTALLED_APPS = [
+<pre><code class="language-python">INSTALLED_APPS = [
     ...
     'ninja_jwt',
     ...

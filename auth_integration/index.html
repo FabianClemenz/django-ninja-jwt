@@ -477,7 +477,7 @@
                 <p>Ninja JWT uses Django Ninja <code>HttpBearer</code> as a way to authenticate users reaching your api endpoint.
 Authenticated user can be found in <code>request.user</code> or <code>request.auth</code></p>
 <h3 id="route-authentication-class-based">Route Authentication - Class Based</h3>
-<pre class="python"><code class="language-sourceCode">from ninja_extra import APIController, router, route
+<pre><code class="language-python">from ninja_extra import APIController, router, route
 from ninja_jwt.authentication import JWTAuth
 
 @router('')
@@ -487,7 +487,7 @@ class MyController(APIController):
         ...
 </code></pre>
 <h3 id="route-authentication-function-based">Route Authentication - Function Based</h3>
-<pre class="python"><code class="language-sourceCode">from ninja import router
+<pre><code class="language-python">from ninja import router
 from ninja_jwt import JWTAuth
 
 router = router('')
@@ -500,7 +500,7 @@ def some_endpoint(self):
 <p>If you wish to use a different implementation of <code>JWTAuth</code>, then you need to inherit from <code>JWTBaseAuthentication</code>.
 Please read more on <a href="https://django-ninja.rest-framework.com/tutorial/authentication/">Django Ninja - Authentication</a>, if you want to use a different approach that is not <code>bearer</code>.</p>
 <p>example:</p>
-<pre class="python"><code class="language-sourceCode">from ninja.security import APIKeyHeader
+<pre><code class="language-python">from ninja.security import APIKeyHeader
 from ninja_jwt.authentication import JWTBaseAuthentication
 from ninja import router
 

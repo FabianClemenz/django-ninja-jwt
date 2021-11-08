@@ -386,7 +386,7 @@ same token secret key. To use this feature, add the
 <code>ninja_jwt.authentication.JWTTokenUserAuthentication</code> backend (instead
 of the default <code>JWTAuthentication</code> backend) to the Django REST
 Framework\'s <code>DEFAULT_AUTHENTICATION_CLASSES</code> config setting:</p>
-<pre class="python"><code class="language-sourceCode">REST_FRAMEWORK = {
+<pre><code class="language-python">REST_FRAMEWORK = {
     ...
     'DEFAULT_AUTHENTICATION_CLASSES': (
         ...

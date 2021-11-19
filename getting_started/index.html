@@ -415,6 +415,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development_and_contributing/" class="md-nav__link">
+        Experimental Feature
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -501,7 +516,7 @@ It is a combination of two subclass <code>TokenVerificationController</code> and
 If you wish to customize these routes, you can inherit from these controllers and change its implementation</p>
 <pre><code class="language-python">from ninja_jwt.controller import TokenObtainPairController, router
 
-@router('token', tags=['Auth']
+@router('token', tags=['Auth'])
 class MyCustomController(TokenObtainPairController):
     &quot;&quot;&quot;obtain_token and refresh_token only&quot;
 ...

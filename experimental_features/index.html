@@ -360,6 +360,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development_and_contributing/" class="md-nav__link">
+        Experimental Feature
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -375,28 +390,25 @@
                 
                   <h1>Experimental features</h1>
                 
-                <hr />
-<p>The <code>JWTTokenUserAuthentication</code> backend\'s <code>authenticate</code> method does
+                <p>The <code>JWTTokenUserAuth</code> backend\'s <code>authenticate</code> method does
 not perform a database lookup to obtain a user instance. Instead, it
 returns a <code>ninja_jwt.models.TokenUser</code> instance which acts as a
 stateless user object backed only by a validated token instead of a
 record in a database. This can facilitate developing single sign-on
 functionality between separately hosted Django apps which all share the
 same token secret key. To use this feature, add the
-<code>ninja_jwt.authentication.JWTTokenUserAuthentication</code> backend (instead
-of the default <code>JWTAuthentication</code> backend) to the Django REST
-Framework\'s <code>DEFAULT_AUTHENTICATION_CLASSES</code> config setting:</p>
-<pre><code class="language-python">REST_FRAMEWORK = {
-    ...
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        ...
-        'ninja_jwt.authentication.JWTTokenUserAuthentication',
-    )
-    ...
-}
+<code>ninja_jwt.authentication.JWTTokenUserAuth</code> backend (instead
+of the default <code>JWTAuth</code> backend) to the Django Ninja Extra route definition</p>
+<pre><code class="language-python">from ninja_extra import APIController, router, route
+from ninja_jwt.authentication import JWTTokenUserAuth
+
+@router('')
+class MyController(APIController):
+    @route.get('/some-endpoint', auth=JWTTokenUserAuth())
+    def some_endpoint(self):
+        pass
+
 </code></pre>
-                
-                  
                 
               
               

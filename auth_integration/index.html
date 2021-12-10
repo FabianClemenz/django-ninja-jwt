@@ -492,18 +492,18 @@
                 <p>Ninja JWT uses Django Ninja <code>HttpBearer</code> as a way to authenticate users reaching your api endpoint.
 Authenticated user can be found in <code>request.user</code> or <code>request.auth</code></p>
 <h3 id="route-authentication-class-based">Route Authentication - Class Based</h3>
-<pre><code class="language-python">from ninja_extra import APIController, router, route
+<pre><code class="language-python">from ninja_extra import api_controller, route
 from ninja_jwt.authentication import JWTAuth
 
-@router('')
-class MyController(APIController):
+@api_controller
+class MyController:
     @route.get('/some-endpoint', auth=JWTAuth())
     def some_endpoint(self):
         ...
 </code></pre>
 <h3 id="route-authentication-function-based">Route Authentication - Function Based</h3>
 <pre><code class="language-python">from ninja import router
-from ninja_jwt import JWTAuth
+from ninja_jwt.authentication import JWTAuth
 
 router = router('')
 
@@ -519,18 +519,17 @@ Please read more on <a href="https://django-ninja.rest-framework.com/tutorial/au
 from ninja_jwt.authentication import JWTBaseAuthentication
 from ninja import router
 
-class ApiKey(APIKeyHeader):
+class ApiKey(APIKeyHeader, JWTBaseAuthentication):
     param_name = &quot;X-API-Key&quot;
 
     def authenticate(self, request, key):
-        if key == &quot;supersecret&quot;:
-            return self.jwt_authenticate(request, token=key)
+        return self.jwt_authenticate(request, token=key)
 
 
 header_key = ApiKey()
 router = router('')
 
-@api.get(&quot;/headerkey&quot;, auth=header_key)
+@router.get(&quot;/headerkey&quot;, auth=header_key)
 def apikey(request):
     return f&quot;Token = {request.auth}&quot;
 

@@ -407,11 +407,12 @@ functionality between separately hosted Django apps which all share the
 same token secret key. To use this feature, add the
 <code>ninja_jwt.authentication.JWTTokenUserAuth</code> backend (instead
 of the default <code>JWTAuth</code> backend) to the Django Ninja Extra route definition</p>
-<pre><code class="language-python">from ninja_extra import APIController, router, route
+<pre><code class="language-python">from ninja_extra import api_controller, route
 from ninja_jwt.authentication import JWTTokenUserAuth
 
-@router('')
-class MyController(APIController):
+
+@api_controller
+class MyController:
     @route.get('/some-endpoint', auth=JWTTokenUserAuth())
     def some_endpoint(self):
         pass

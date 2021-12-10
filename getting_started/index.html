@@ -514,9 +514,10 @@ api.register_controllers(NinjaJWTDefaultController)
 <p>The <code>NinjaJWTDefaultController</code> comes with three routes <code>obtain_token</code>, <code>refresh_token</code> and <code>verify_token</code>. 
 It is a combination of two subclass <code>TokenVerificationController</code> and <code>TokenObtainPairController</code>.
 If you wish to customize these routes, you can inherit from these controllers and change its implementation</p>
-<pre><code class="language-python">from ninja_jwt.controller import TokenObtainPairController, router
+<pre><code class="language-python">from ninja_extra import api_controller
+from ninja_jwt.controller import TokenObtainPairController
 
-@router('token', tags=['Auth'])
+@api_controller('token', tags=['Auth'])
 class MyCustomController(TokenObtainPairController):
     &quot;&quot;&quot;obtain_token and refresh_token only&quot;
 ...

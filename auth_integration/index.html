@@ -315,6 +315,19 @@
     Custom Auth Implement
   </a>
   
+    <nav class="md-nav" aria-label="Custom Auth Implement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asynchronous-route-authentication" class="md-nav__link">
+    Asynchronous Route Authentication
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -472,6 +485,19 @@
     Custom Auth Implement
   </a>
   
+    <nav class="md-nav" aria-label="Custom Auth Implement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asynchronous-route-authentication" class="md-nav__link">
+    Asynchronous Route Authentication
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -534,6 +560,20 @@ def apikey(request):
     return f&quot;Token = {request.auth}&quot;
 
 </code></pre>
+<h3 id="asynchronous-route-authentication">Asynchronous Route Authentication</h3>
+<p>If you are interested in the Asynchronous Route Authentication, there is <code>AsyncJWTAuth</code> class</p>
+<pre><code class="language-python">from ninja_extra import api_controller, route
+from ninja_jwt.authentication import AsyncJWTAuth
+
+@api_controller
+class MyController:
+    @route.get('/some-endpoint', auth=AsyncJWTAuth())
+    async def some_endpoint(self):
+        ...
+</code></pre>
+<p>N:B <code>some_endpoint</code> must be asynchronous. Any endpoint function marked with <code>AsyncJWTAuth</code> must be asynchronous. </p>
+<p>!!! warning
+    Asynchronous feature is only available for django version &gt; 3.0</p>
                 
               
               

@@ -11,18 +11,18 @@
       
       
       
-        <link rel="canonical" href="https://eadwincode.github.io/django-ninja-jwt/experimental_features/">
+        <link rel="canonical" href="https://eadwincode.github.io/django-ninja-jwt/stateless_user_authentication/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.2">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-7.3.6">
     
     
       
-        <title>Experimental Feature - Django Ninja JWT</title>
+        <title>Stateless user authentication - Django Ninja JWT</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.24c991ad.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -70,6 +70,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#stateless-user-authentication" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -98,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Experimental Feature
+              Stateless user authentication
             
           </span>
         </div>
@@ -366,19 +371,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../experimental_features.md" class="md-nav__link">
         Experimental Feature
       </a>
-      
     </li>
   
 
@@ -390,34 +387,70 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jwtstatelessuserauthentication-backend" class="md-nav__link">
+    JWTStatelessUserAuthentication backend
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Experimental Feature</h1>
-                
-                <p>The <code>JWTTokenUserAuth</code> backend\'s <code>authenticate</code> method does
-not perform a database lookup to obtain a user instance. Instead, it
-returns a <code>ninja_jwt.models.TokenUser</code> instance which acts as a
-stateless user object backed only by a validated token instead of a
-record in a database. This can facilitate developing single sign-on
-functionality between separately hosted Django apps which all share the
-same token secret key. To use this feature, add the
-<code>ninja_jwt.authentication.JWTTokenUserAuth</code> backend (instead
-of the default <code>JWTAuth</code> backend) to the Django Ninja Extra route definition</p>
+                <h1 id="stateless-user-authentication">Stateless User Authentication</h1>
+<h2 id="jwtstatelessuserauthentication-backend">JWTStatelessUserAuthentication backend</h2>
+<p>The <code>JWTStatelessUserAuthentication</code> backend's <code>authenticate</code> method does not
+perform a database lookup to obtain a user instance.  Instead, it returns a
+<code>ninja_jwt.models.TokenUser</code> instance which acts as a
+stateless user object backed only by a validated token instead of a record in a
+database.  This can facilitate developing single sign-on functionality between
+separately hosted Django apps which all share the same token secret key.<br />
+To use this feature, add the
+<code>ninja_jwt.authentication.JWTStatelessUserAuthentication</code> backend (instead
+of the default <code>ninja_jwt.authentication.JWTAuth</code> backend) to the Django Ninja Extra route definition</p>
 <pre><code class="language-python">from ninja_extra import api_controller, route
-from ninja_jwt.authentication import JWTTokenUserAuth
+from ninja_jwt.authentication import JWTStatelessUserAuthentication
 
 
 @api_controller
 class MyController:
-    @route.get('/some-endpoint', auth=JWTTokenUserAuth())
+    @route.get('/some-endpoint', auth=JWTStatelessUserAuthentication())
     def some_endpoint(self):
         pass
 
 </code></pre>
+<p><code>JWTTokenUserAuth</code> has been renamed to <code>JWTStatelessUserAuthentication</code>, 
+but both names are supported for backwards compatibility</p>
                 
               
               
@@ -433,26 +466,6 @@ class MyController:
       
         
 <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../development_and_contributing/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Development and Contributing" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Development and Contributing
-            </div>
-          </div>
-        </a>
-      
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -475,10 +488,10 @@ class MyController:
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.e99e714c.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.bc35569b.min.js"></script>
+      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
       
     
   </body>
